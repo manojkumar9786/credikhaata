@@ -1,9 +1,7 @@
 const asyncHandler = require('express-async-handler');
 const Loan = require('../models/Loan');
 
-// @desc    Send overdue reminder
 // @route   POST /api/loans/:loanId/remind
-// @access  Private
 const sendOverdueReminder = asyncHandler(async (req, res) => {
   const loan = await Loan.findOne({
     _id: req.params.loanId,
@@ -40,9 +38,7 @@ const sendOverdueReminder = asyncHandler(async (req, res) => {
   });
 });
 
-// @desc    Get all overdue loans
 // @route   GET /api/alerts/overdue
-// @access  Private
 const getOverdueLoans = asyncHandler(async (req, res) => {
   const today = new Date();
   const overdueLoans = await Loan.find({

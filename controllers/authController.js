@@ -2,9 +2,7 @@ const User = require('../models/User');
 const { generateToken } = require('../config/jwt');
 const asyncHandler = require('express-async-handler');
 
-// @desc    Register a new user
 // @route   POST /api/auth/register
-// @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, phone, shopName } = req.body;
 
@@ -37,9 +35,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Authenticate user & get token
 // @route   POST /api/auth/login
-// @access  Public
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -60,9 +56,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Get user profile
 // @route   GET /api/auth/profile
-// @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id).select('-password');
   

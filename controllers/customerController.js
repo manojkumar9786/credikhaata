@@ -1,17 +1,13 @@
 const Customer = require('../models/Customer');
 const asyncHandler = require('express-async-handler');
 
-// @desc    Get all customers for a user
 // @route   GET /api/customers
-// @access  Private
 const getCustomers = asyncHandler(async (req, res) => {
   const customers = await Customer.find({ user: req.user._id }).sort('-createdAt');
   res.json(customers);
 });
 
-// @desc    Create a new customer
 // @route   POST /api/customers
-// @access  Private
 const createCustomer = asyncHandler(async (req, res) => {
   const { name, phone, address, trustScore, creditLimit } = req.body;
 
@@ -27,9 +23,7 @@ const createCustomer = asyncHandler(async (req, res) => {
   res.status(201).json(customer);
 });
 
-// @desc    Get a single customer
 // @route   GET /api/customers/:id
-// @access  Private
 const getCustomer = asyncHandler(async (req, res) => {
   const customer = await Customer.findOne({
     _id: req.params.id,
@@ -44,9 +38,7 @@ const getCustomer = asyncHandler(async (req, res) => {
   res.json(customer);
 });
 
-// @desc    Update a customer
 // @route   PUT /api/customers/:id
-// @access  Private
 const updateCustomer = asyncHandler(async (req, res) => {
   const customer = await Customer.findOne({
     _id: req.params.id,
@@ -68,9 +60,7 @@ const updateCustomer = asyncHandler(async (req, res) => {
   res.json(updatedCustomer);
 });
 
-// @desc    Delete a customer
 // @route   DELETE /api/customers/:id
-// @access  Private
 const deleteCustomer = asyncHandler(async (req, res) => {
   const customer = await Customer.findOne({
     _id: req.params.id,

@@ -34,6 +34,34 @@ A RESTful backend service that helps small business owners manage customer credi
 - **PDF Generation**: PDFKit
 - **Date Handling**: Moment.js
 
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/manojkumar9786/credikhaata
+   cd credikhaata
+
+2. Install dependencies:
+   ```bash
+   npm install
+
+3. Set up environment variables:
+   ```bash
+   .env
+
+Edit .env with your configuration:
+    
+    NODE_ENV=development
+    PORT=5000
+    MONGO_URI=YOUR_MONGO_URI
+    JWT_SECRET=your_jwt_secret_here
+
+4. Start the server:
+   ```bash
+   npm run dev
+
+
 ## API Documentation
 
 ### Authentication
@@ -78,10 +106,3 @@ A RESTful backend service that helps small business owners manage customer credi
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/api/webhook/repayment` | POST | Payment notification webhook |
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/credikhaata.git
-   cd credikhaata
